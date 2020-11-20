@@ -4,6 +4,7 @@ package com.example.pokedex;
 public class Pokedex {
 
     public static void main(String[] args) {
+        Pokemon pokemon = null;
         int id = 1;
 
         System.out.println("It's working !");
@@ -17,9 +18,17 @@ public class Pokedex {
                 System.exit(1);
             }
         }
+        if (args.length > 1) {
+            System.out.println("From database");
+            PokemonControllerViaSQL pokemonControllerViaSQL = new PokemonControllerViaSQL();
+            pokemon = pokemonControllerViaSQL.getPokemon(id, args[1]);
+        }
+        else {
+            System.out.println("From PokeApi");
+            PokemonControllerViaApi pokemonControllerViaApi = new PokemonControllerViaApi();
+            pokemon = pokemonControllerViaApi.getPokemon(id);
+        }
 
-        PokemonControllerViaApi pokemonControllerViaApi = new PokemonControllerViaApi();
-        Pokemon pokemon = pokemonControllerViaApi.getPokemon(id);
         String pokeInfo = pokemon.toString();
         System.out.println(pokeInfo);
 
