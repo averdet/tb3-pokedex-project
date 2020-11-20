@@ -20,8 +20,8 @@ public class Pokedex {
         }
         if (args.length > 1) {
             System.out.println("From database");
-            PokemonControllerViaSQL pokemonControllerViaSQL = new PokemonControllerViaSQL();
-            pokemon = pokemonControllerViaSQL.getPokemon(id, args[1]);
+            PokemonControllerViaSQL pokemonControllerViaSQL = new PokemonControllerViaSQL(args[1]);
+            pokemon = pokemonControllerViaSQL.getPokemon(id);
         }
         else {
             System.out.println("From PokeApi");

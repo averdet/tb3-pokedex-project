@@ -2,15 +2,28 @@ package com.example.pokedex;
 
 import java.sql.*;
 
-public class PokemonControllerViaSQL  {
+public class PokemonControllerViaSQL implements PokemonControllerInterface {
+    private String databaseUrl;
 
-    public Pokemon getPokemon(int id, String database) {
+    public String getDatabaseUrl() {
+        return databaseUrl;
+    }
+
+    public void setDatabaseUrl(String databaseUrl) {
+        this.databaseUrl = databaseUrl;
+    }
+
+    public PokemonControllerViaSQL(String databaseUrl) {
+        this.databaseUrl = databaseUrl;
+    }
+
+    public Pokemon getPokemon(int id) {
         Pokemon pokemon = null;
         /* Connect to the database */
         Connection conn = null;
         try {
             // db parameters
-            String url = "jdbc:sqlite:"+database;
+            String url = "jdbc:sqlite:"+this.databaseUrl;
             // create a connection to the database
             conn = DriverManager.getConnection(url);
             System.out.println("Connection to SQLite has been established.");
