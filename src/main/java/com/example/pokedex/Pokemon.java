@@ -5,6 +5,7 @@ public class Pokemon {
     private String name;
     private int height;
     private int weight;
+    private String description = "";
 
     public int getId() {
         return id;
@@ -38,6 +39,14 @@ public class Pokemon {
         this.weight = weight;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public Pokemon(int id, String name, int height, int weight) {
         this.id = id;
         this.name = name;
@@ -45,15 +54,26 @@ public class Pokemon {
         this.weight = weight;
     }
 
+    public Pokemon(int id, String name, int height, int weight, String description) {
+        this.id = id;
+        this.name = name;
+        this.height = height;
+        this.weight = weight;
+        this.description = description;
+    }
+
     @Override
     public String toString() {
-        return "Pokemon Id : " + this.id + "\n"
+        String string = "Pokemon Id : " + this.id + "\n"
                 +"Pokemon Name : " + this.name + "\n"
                 +"Pokemon Height : " + this.height + "\n"
                 +"Pokemon Weight : " + this.weight + "\n";
+        if (description.length() > 0) string = string +"Pokemon Description : " + this.description + "\n";
+        return string;
+
     }
 
     public boolean equals(Pokemon b) {
-        return this.id == b.id & this.name.equals(b.name) & this.height == b.height & this.weight == b.weight;
+        return this.id == b.id & this.name.equals(b.name) & this.height == b.height & this.weight == b.weight & this.description.equals(b.description);
     }
 }
