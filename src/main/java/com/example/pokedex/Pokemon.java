@@ -44,4 +44,12 @@ public class Pokemon {
         this.height = height;
         this.weight = weight;
     }
+
+    @Override
+    public String toString() {
+        return "Pokemon Id : " + this.id + "\n"
+                +"Pokemon Name : " + this.name + "\n"
+                +"Pokemon Height : " + this.height + "\n"
+                +"Pokemon Weight : " + this.weight + "\n";
+    }
 }
