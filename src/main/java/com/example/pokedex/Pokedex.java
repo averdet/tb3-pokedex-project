@@ -8,7 +8,8 @@ public class Pokedex {
 
         System.out.println("It's working !");
         if (args.length > 0) {
-            System.out.println("Vous avez fourni l'argument " + args[0]);
+            //System.out.println("Vous avez fourni l'argument " + args[0]);
+            System.out.println("Retrieving Pokemon with Id : " + args[0]);
             try {
                 id = Integer.parseInt(args[0]);
             } catch (NumberFormatException nfe) {
