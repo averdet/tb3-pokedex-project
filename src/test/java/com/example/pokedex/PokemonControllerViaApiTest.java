@@ -6,7 +6,7 @@ import org.junit.Test;
 public class PokemonControllerViaApiTest {
 
     @Test
-    public void PokeControllerViaApiTest() {
+    public void PokemonControllerViaApiTest() {
         Pokemon hooh = new Pokemon(250, "ho-oh", 38, 1990);
         PokemonControllerViaApi api = new PokemonControllerViaApi();
         Pokemon result = api.getPokemon(250);
