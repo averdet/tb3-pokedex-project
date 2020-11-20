@@ -4,13 +4,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.IOException;
-import java.net.http.HttpResponse;
-
-public class PokeApi implements PokeApiRetriever {
+public class PokemonControllerViaApi implements PokemonControllerInterface {
 
     @Override
-    public Pokemon retrievePokemonInfo(int id) {
+    public Pokemon getPokemon(int id) {
         Pokemon pokemon = null;
 
         HTTPRequester requester = new HTTPRequester();

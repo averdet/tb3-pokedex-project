@@ -18,8 +18,8 @@ public class Pokedex {
             }
         }
 
-        PokeApi pokeApi = new PokeApi();
-        Pokemon pokemon = pokeApi.retrievePokemonInfo(id);
+        PokemonControllerViaApi pokemonControllerViaApi = new PokemonControllerViaApi();
+        Pokemon pokemon = pokemonControllerViaApi.getPokemon(id);
         String pokeInfo = pokemon.toString();
         System.out.println(pokeInfo);
 
