@@ -52,4 +52,8 @@ public class Pokemon {
                 +"Pokemon Height : " + this.height + "\n"
                 +"Pokemon Weight : " + this.weight + "\n";
     }
+
+    public boolean equals(Pokemon b) {
+        return this.id == b.id & this.name.equals(b.name) & this.height == b.height & this.weight == b.weight;
+    }
 }
