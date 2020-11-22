@@ -62,16 +62,15 @@ public class Pokemon {
         this.description = description;
     }
 
-    @Override
-    public String toString() {
-        String string = "Pokemon Id : " + this.id + "\n"
-                +"Pokemon Name : " + this.name + "\n"
-                +"Pokemon Height : " + this.height + "\n"
-                +"Pokemon Weight : " + this.weight + "\n";
-        if (description.length() > 0) string = string +"Pokemon Description : " + this.description + "\n";
-        return string;
-
-    }
+//    @Override
+//    public String toString() {
+//        String string = "Pokemon Id : " + this.id + "\n"
+//                +"Pokemon Name : " + this.name + "\n"
+//                +"Pokemon Height : " + this.height + "\n"
+//                +"Pokemon Weight : " + this.weight + "\n";
+//        if (description.length() > 0) string = string +"Pokemon Description : " + this.description;
+//        return string;
+//    }
 
     public boolean equals(Pokemon b) {
         return this.id == b.id & this.name.equals(b.name) & this.height == b.height & this.weight == b.weight & this.description.equals(b.description);
