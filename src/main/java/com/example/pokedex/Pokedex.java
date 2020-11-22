@@ -20,7 +20,8 @@ public class Pokedex {
         }
         if (args.length > 1) {
             System.out.println("From database");
-            PokemonControllerViaSQL pokemonControllerViaSQL = new PokemonControllerViaSQL(args[1]);
+            //Liskov Substitution
+            PokemonControllerViaApi pokemonControllerViaSQL = new PokemonControllerViaSQL(args[1]);
             pokemon = pokemonControllerViaSQL.getPokemon(id);
         }
         else {

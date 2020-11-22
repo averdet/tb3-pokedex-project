@@ -2,6 +2,8 @@ package com.example.pokedex;
 
 import java.sql.*;
 
+// Single purpose : only 1 purpose for the class : retrieve Pokemon information from SQL database
+// Open-Closed : PokemonControllerViaApi extension
 public class PokemonControllerViaSQL extends PokemonControllerViaApi {
     private String databaseUrl;
 
@@ -40,6 +42,7 @@ public class PokemonControllerViaSQL extends PokemonControllerViaApi {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             System.out.println("Pokemon not in database, retrieving from PokeApi");
+            //Open-Closed : use superclass
             pokemon = super.getPokemon(id);
         }
         return pokemon;
