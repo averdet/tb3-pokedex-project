@@ -13,4 +13,13 @@ public class PokemonControllerViaSQLTest {
 
         Assert.assertTrue(result.equals(florizarre));
     }
+
+    @Test
+    public void PokemonControllerViaSQLTestError () {
+        Pokemon pikachu = new Pokemon(25, "pikachu", 4, 60);
+        PokemonControllerViaSQL sql = new PokemonControllerViaSQL("/tmp/pokemondatabase.sqlite");
+        Pokemon result = sql.getPokemon(25);
+
+        Assert.assertTrue(result.equals(pikachu));
+    }
 }

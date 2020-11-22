@@ -2,7 +2,7 @@ package com.example.pokedex;
 
 import java.sql.*;
 
-public class PokemonControllerViaSQL implements PokemonControllerInterface {
+public class PokemonControllerViaSQL extends PokemonControllerViaApi {
     private String databaseUrl;
 
     public String getDatabaseUrl() {
@@ -39,6 +39,8 @@ public class PokemonControllerViaSQL implements PokemonControllerInterface {
             pokemon = new Pokemon(id, pokemonName, pokemonHeight, pokemonWeight, pokemonDescription);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            System.out.println("Pokemon not in database, retrieving from PokeApi");
+            pokemon = super.getPokemon(id);
         }
         return pokemon;
     }
