@@ -4,6 +4,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+// Single purpose : only 1 purpose for the class : retrieve Pokemon information from PokeApi
 public class PokemonControllerViaApi implements PokemonControllerInterface {
 
     @Override

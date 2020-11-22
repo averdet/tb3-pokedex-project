@@ -8,6 +8,7 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 
+// Single purpose : only 1 purpose for the class : make an HTTP request
 public class HTTPRequester implements HTTPRequesterInterface {
     public String makeRequest(String url) {
         String response;
