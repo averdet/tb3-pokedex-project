@@ -6,6 +6,7 @@ public class Pokedex {
     public static void main(String[] args) {
         Pokemon pokemon = null;
         int id = 1;
+        //PokemonControllerInterface pokemonController = null;
 
         System.out.println("It's working !");
         if (args.length > 0) {
@@ -30,6 +31,7 @@ public class Pokedex {
             pokemon = pokemonControllerViaApi.getPokemon(id);
         }
 
+        //pokemon = pokemonController.getPokemon(id);
         PokemonView pokemonViewer = new PokemonView();
         pokemonViewer.print(pokemon);
 
