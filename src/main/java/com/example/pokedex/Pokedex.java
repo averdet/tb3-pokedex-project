@@ -30,8 +30,8 @@ public class Pokedex {
             pokemon = pokemonControllerViaApi.getPokemon(id);
         }
 
-        PokemonView viewer = new PokemonView();
-        viewer.print(pokemon);
+        PokemonView pokemonViewer = new PokemonView();
+        pokemonViewer.print(pokemon);
 
         //SQLLiteExample.run();
         //HTTPRequestExample.run();
