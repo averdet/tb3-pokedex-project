@@ -6,8 +6,8 @@ public class PokemonView {
         String string = "Pokemon Id : " + pokemon.getId() + "\n"
                 +"Pokemon Name : " + pokemon.getName() + "\n"
                 +"Pokemon Height : " + pokemon.getHeight() + "\n"
-                +"Pokemon Weight : " + pokemon.getWeight() + "\n";
-        if (pokemon.getDescription().length() > 0) string = string +"Pokemon Description : " + pokemon.getDescription();
+                +"Pokemon Weight : " + pokemon.getWeight();
+        if (pokemon.getDescription().length() > 0) string = string + "\n" + "Pokemon Description : " + pokemon.getDescription();
         return string;
     }
 
