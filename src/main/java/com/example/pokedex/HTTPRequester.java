@@ -10,6 +10,11 @@ import java.io.IOException;
 
 // Single purpose : only 1 purpose for the class : make an HTTP request
 public class HTTPRequester implements HTTPRequesterInterface {
+    /**
+     * This method aims at executing an HTTP GET request
+     * @param url String corresponding to the URL to retrieve
+     * @return String corresponding to the HTTP response
+     */
     public String makeRequest(String url) {
         String response;
         try {

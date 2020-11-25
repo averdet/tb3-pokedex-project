@@ -1,5 +1,9 @@
 package com.example.pokedex;
 
+/**
+ * View method for Pokemon class
+ * Implements toString(Pokemon pokemon) and print(Pokemon pokemon) in order to facilitate readability in the terminal
+ */
 public class PokemonView {
 
     public String toString(Pokemon pokemon) {

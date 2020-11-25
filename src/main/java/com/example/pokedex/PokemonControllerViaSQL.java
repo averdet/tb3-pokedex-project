@@ -19,6 +19,11 @@ public class PokemonControllerViaSQL extends PokemonControllerViaApi {
         this.databaseUrl = databaseUrl;
     }
 
+    /**
+     * This method creates a Pokemon object from its Id and retrieving information form the Sqlite Database
+     * @param id Pokemon id (int)
+     * @return corresponding Pokemon object
+     */
     public Pokemon getPokemon(int id) {
         Pokemon pokemon = null;
         /* Connect to the database */

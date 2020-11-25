@@ -7,6 +7,11 @@ import org.json.simple.parser.ParseException;
 // Single purpose : only 1 purpose for the class : retrieve Pokemon information from PokeApi
 public class PokemonControllerViaApi implements PokemonControllerInterface {
 
+    /**
+     * This method creates a Pokemon object from its Id and retrieving information form PokeApi
+     * @param id Pokemon id (int)
+     * @return corresponding Pokemon object
+     */
     @Override
     public Pokemon getPokemon(int id) {
         Pokemon pokemon = null;
