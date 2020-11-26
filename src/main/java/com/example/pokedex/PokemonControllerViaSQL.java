@@ -24,6 +24,7 @@ public class PokemonControllerViaSQL extends PokemonControllerViaApi {
      * @param id Pokemon id (int)
      * @return corresponding Pokemon object
      */
+    @Override
     public Pokemon getPokemon(int id) {
         Pokemon pokemon = null;
         /* Connect to the database */

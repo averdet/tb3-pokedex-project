@@ -6,7 +6,7 @@ public class Pokedex {
     public static void main(String[] args) {
         Pokemon pokemon = null;
         int id = 1;
-        //PokemonControllerInterface pokemonController = null;
+        PokemonControllerInterface pokemonController = null;
 
         System.out.println("It's working !");
         if (args.length > 0) {
@@ -22,13 +22,13 @@ public class Pokedex {
         if (args.length > 1) {
             System.out.println("From database");
             //Liskov Substitution
-            PokemonControllerViaApi pokemonControllerViaSQL = new PokemonControllerViaSQL(args[1]);
-            pokemon = pokemonControllerViaSQL.getPokemon(id);
+            pokemonController = new PokemonControllerViaSQL(args[1]);
+            pokemon = pokemonController.getPokemon(id);
         }
         else {
             System.out.println("From PokeApi");
-            PokemonControllerViaApi pokemonControllerViaApi = new PokemonControllerViaApi();
-            pokemon = pokemonControllerViaApi.getPokemon(id);
+            pokemonController = new PokemonControllerViaApi();
+            pokemon = pokemonController.getPokemon(id);
         }
 
         //pokemon = pokemonController.getPokemon(id);
