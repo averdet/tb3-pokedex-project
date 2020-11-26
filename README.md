@@ -37,7 +37,7 @@ To run the application with command line arguments :
 # Report
 
 
-The goal of this project is to experiment the *SOLID* method to design application.\
+The goal of this project is to experiment the *SOLID* method to design applications.\
 We will therefore make a basic java implementation of a Pokedex, via [PokeApi](https://pokeapi.co/) and / or a SQLite database.
 
 * S : Single-purpose Responsibility
@@ -49,8 +49,8 @@ We will therefore make a basic java implementation of a Pokedex, via [PokeApi](h
 
 ## Single-purpose Responsibility
 
-We have to ensure every class and method have and fulfil only one objective.\
-In order to do this, I fragmented the communication with the API into two classes: *HTTPRequester* and *PokemonControllerViaApi*. The first one can be used to process any HTTP request while the second creates the *Pokemon* instance from the HTTP response by parsing the received Json file. This fragmentation can be relevant if we want to add new functionalities in the future. [PokeApi](https://pokeapi.co/) provides way more information other than Pokemon (berries, attacks...).\
+We have to ensure that every class and method have and fulfil only one objective.\
+In order to do this, I fragmented the communication with the API into two classes: *HTTPRequester* and *PokemonControllerViaApi*. The first one can be used to process any HTTP request while the second creates the *Pokemon* instance from the HTTP response by parsing the received Json file. This fragmentation can be relevant if we want to add new functionalities in the future. [PokeApi](https://pokeapi.co/) provides way more information other than Pokemons (berries, attacks...).
 
 *Pokemon* are implemented following the MVC (Model, View, Controller) standard. Therefore, we have several classes, all of which only serves one unique and well defined task.
 * `Pokemon` which models the Pokemon object and it's attributes
@@ -59,7 +59,7 @@ In order to do this, I fragmented the communication with the API into two classe
 
 ## Open-Closed
 
-We used the *Open-Closed* principle to implement the *Sqlite databse* functionality on top of the *PokeApi* functionality. `PokemonControllerViaSQL` extends `PokemonControllerViaApi`therefore we can easily call the `PokemonControllerViaApi` methods if we can't retrieve the Pokemon's information from the database :
+We used the *Open-Closed* principle to implement the *Sqlite database* functionality on top of the *PokeApi* functionality. `PokemonControllerViaSQL` extends `PokemonControllerViaApi`therefore we can easily call the `PokemonControllerViaApi` methods if we can't retrieve the Pokemon's information from the database :
 ```java
 catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -71,7 +71,7 @@ catch (SQLException e) {
 
 ## Liskov Substitution
 
-We represent the *Liskov Substitution* in the *Pokedex* main class by using only one `PokemonControllerInterface` instance called `pokemonController` and initialised either with `new PokemonControllerViaSQL(db.url)` or `new PokemonControllerViaApi()` weither the user provided a database path in the args.
+We represent the *Liskov Substitution* in the *Pokedex* main class by using only one `PokemonControllerInterface` instance called `pokemonController` and initialising it either with `new PokemonControllerViaSQL(db.url)` or `new PokemonControllerViaApi()` weither the user provided a database path in the args.
 ```java
 PokemonControllerInterface pokemonController = null;
 // To better represent Liskov Substitution, Could be replaced by
