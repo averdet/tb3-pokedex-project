@@ -23,15 +23,15 @@ public class Pokedex {
             System.out.println("From database");
             //Liskov Substitution
             pokemonController = new PokemonControllerViaSQL(args[1]);
-            pokemon = pokemonController.getPokemon(id);
+            //pokemon = pokemonController.getPokemon(id);
         }
         else {
             System.out.println("From PokeApi");
             pokemonController = new PokemonControllerViaApi();
-            pokemon = pokemonController.getPokemon(id);
+            //pokemon = pokemonController.getPokemon(id);
         }
 
-        //pokemon = pokemonController.getPokemon(id);
+        pokemon = pokemonController.getPokemon(id);
         PokemonView pokemonViewer = new PokemonView();
         pokemonViewer.print(pokemon);
 
