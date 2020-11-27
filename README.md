@@ -3,7 +3,7 @@
 
 * Author : Alexandre Verdet
 * Last update : 26/11/20
-* Main project : *insert professor's repo*
+* Main project : [SOLID Lesson Gitlab Repo](https://gitlab.com/qrichaud/emse_solid_lesson)
 
 ## Prerequiries : build, run app, run tests
 
