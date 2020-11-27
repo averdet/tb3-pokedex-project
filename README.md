@@ -49,7 +49,7 @@ We will therefore make a basic java implementation of a Pokedex, via [PokeApi](h
 
 ## Single-purpose Responsibility
 
-We have to ensure that every class and method have and fulfil only one objective.\
+We have to ensure that every class and method has and fulfills only one objective.\
 In order to do this, I fragmented the communication with the API into two classes: *HTTPRequester* and *PokemonControllerViaApi*. The first one can be used to process any HTTP request while the second creates the *Pokemon* instance from the HTTP response by parsing the received Json file. This fragmentation can be relevant if we want to add new functionalities in the future. [PokeApi](https://pokeapi.co/) provides way more information other than Pokemons (berries, attacks...).
 
 *Pokemon* are implemented following the MVC (Model, View, Controller) standard. Therefore, we have several classes, all of which only serves one unique and well defined task.
@@ -71,7 +71,7 @@ catch (SQLException e) {
 
 ## Liskov Substitution
 
-We represent the *Liskov Substitution* in the *Pokedex* main class by using only one `PokemonControllerInterface` instance called `pokemonController` and initialising it either with `new PokemonControllerViaSQL(db.url)` or `new PokemonControllerViaApi()` weither the user provided a database path in the args.
+We represent the *Liskov Substitution* in the *Pokedex* main class by using only one `PokemonControllerInterface` instance called `pokemonController` and initialising it either with `new PokemonControllerViaSQL(db.url)` or `new PokemonControllerViaApi()` whether the user provided a database path in the args.
 ```java
 PokemonControllerInterface pokemonController = null;
 // To better represent Liskov Substitution, Could be replaced by
@@ -94,7 +94,7 @@ if (args.length > 1) {
 
 As we saw previously, the main `Pokedex` class only depends on the `PokemonControllerInterface` and its `getPokemon(int id)` method to create a Pokemon and retrieve its information.
 
-To represent it, we created a `PokemonControllerViaMock` class which implements the *getPokemon()* method returning a mock Pokemon for testing purpose.
+To represent it, we created a `PokemonControllerViaMock` class which implements the *getPokemon()* method returning a mock Pokemon for testing purposes.
 
 
 ## Interface Segregation
@@ -102,7 +102,7 @@ To represent it, we created a `PokemonControllerViaMock` class which implements 
 In our case, the `PokemonControllerInterface` is very simple and only requires the implementation of one method *Pokemon getPokemon(int id)*. Therefore, the implementation of this interface isn't too binding.
 
 We will try to describe an example in which the Interface Segregation principle may be useful.\
-Let's say we need to rewrite the implementation of the sql communication classes in order to communicate with an exotic type of database. We could create a general interface called `ExoticDatabaseController` requiring to implement every method to fully communicate with the database (read, write, create table, delete, set primary keys...)
+Let's say we need to rewrite the implementation of the sql communication classes in order to communicate with an exotic type of database. We could create a general interface called `ExoticDatabaseController` requiring us to implement every method to fully communicate with the database (read, write, create table, delete, set primary keys...)
 
-However, if this database represents a filled Pokemon database, the Pokedex doesn't need to write, neither delete or create new tables. We don't need to implement theses methods to make the Pokedex work.
+However, if this database represents a filled Pokemon database, the Pokedex doesn't need to write, neither delete or create new tables. We don't need to implement these methods to make the Pokedex work.
 Following the *Interface Segregation* principle, we should create several interfaces to split the different possible usages of the database. For instance, create interfaces such as `ExoticDatabaseReader`, `ExoticDatabaseWriter`...
