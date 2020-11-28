@@ -92,7 +92,7 @@ if (args.length > 1) {
 
 ## Dependency Inversion
 
-As we saw previously, the main `Pokedex` class only depends on the `PokemonControllerInterface` and its `getPokemon(int id)` method to create a Pokemon and retrieve its information.
+As we saw previously, the main `Pokedex` class only depends on the `PokemonControllerInterface` and its `getPokemon(int id)` method to create a Pokemon and retrieve its information. It is the main `Pokedex` class which will instanciate the `PokemonControllerInterface` by `PokemonControllerViaApi` or `PokemonControllerViaSQL`, as long as it fulfills the interface.
 
 To represent it, we created a `PokemonControllerViaMock` class which implements the *getPokemon()* method returning a mock Pokemon for testing purposes.
 
